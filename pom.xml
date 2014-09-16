@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.gtech.archetypes</groupId>
     <artifactId>java8-consoleapp-archetype</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <name>Archetype for Java8 console application with logging</name>
     <url>http://maven.apache.org</url>
 </project>
