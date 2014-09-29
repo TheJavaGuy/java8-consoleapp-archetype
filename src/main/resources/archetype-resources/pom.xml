@@ -15,6 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.resourcesDirectory>src/main/resources</project.resourcesDirectory>
+        <project.externalResourcesDirectory>src/main/resources-ext</project.externalResourcesDirectory>
         <project.libDirectory>lib</project.libDirectory>
         <mainClass>${package}.App</mainClass>
         <junit.version>4.11</junit.version>
@@ -89,6 +90,7 @@
                             <mainClass>${mainClass}</mainClass>
                             <classpathPrefix>${project.libDirectory}/</classpathPrefix>
                             <addClasspath>true</addClasspath>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>
                         <manifestEntries>
                             <Min-Java-Version>1.8.0</Min-Java-Version>

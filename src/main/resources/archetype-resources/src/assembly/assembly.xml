@@ -20,6 +20,11 @@ xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assemb
                 <exclude>*-javadoc.jar</exclude>
             </excludes>
         </fileSet>
+        <!-- Copy application external resources alongside JAR -->
+        <fileSet>
+            <directory>${project.externalResourcesDirectory}</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
     </fileSets>
     <dependencySets>
         <dependencySet>
