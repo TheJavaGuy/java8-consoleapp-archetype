@@ -6,6 +6,8 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>jar</packaging>
     <version>${version}</version>
+    <name>Enter project name here</name>
+    <description>Enter project description here</description>
 
     <prerequisites>
         <maven>3.0.4</maven>
