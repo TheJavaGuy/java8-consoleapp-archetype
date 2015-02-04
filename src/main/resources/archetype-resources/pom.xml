@@ -21,6 +21,7 @@
         <project.libDirectory>lib</project.libDirectory>
         <mainClass>${package}.App</mainClass>
         <junit.version>4.11</junit.version>
+        <jmock.version>2.6.0</jmock.version>
         <guava.version>18.0</guava.version>
         <jcommander.version>1.35</jcommander.version>
         <slf4j.version>1.7.7</slf4j.version>
@@ -32,6 +33,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jmock</groupId>
+            <artifactId>jmock-junit4</artifactId>
+            <version>${jmock.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
