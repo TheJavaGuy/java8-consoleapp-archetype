@@ -20,11 +20,11 @@
         <project.externalResourcesDirectory>src/main/resources-ext</project.externalResourcesDirectory>
         <project.libDirectory>lib</project.libDirectory>
         <mainClass>${package}.App</mainClass>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.12</junit.version>
         <jmock.version>2.6.0</jmock.version>
         <guava.version>18.0</guava.version>
-        <jcommander.version>1.35</jcommander.version>
-        <slf4j.version>1.7.7</slf4j.version>
+        <jcommander.version>1.47</jcommander.version>
+        <slf4j.version>1.7.10</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>
 
