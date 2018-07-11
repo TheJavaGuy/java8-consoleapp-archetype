@@ -6,12 +6,14 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>jar</packaging>
     <version>${version}</version>
-    <name>Enter project name here</name>
-    <description>Enter project description here</description>
-
-    <prerequisites>
-        <maven>3.0.4</maven>
-    </prerequisites>
+    <name>${projectName}</name>
+    <description>${projectDescription}</description>
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE Version 3</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,15 +23,44 @@
         <project.libDirectory>lib</project.libDirectory>
         <mainClass>${package}.App</mainClass>
         <junit.version>4.12</junit.version>
+#if (${useAssertj} == 'true' || ${useAssertj} == 'yes' || ${useAssertj} == 'y')
+        <assertj.version>3.10.0</assertj.version>
+        <assertj-guava.version>3.2.0</assertj-guava.version>
+#elseif (${useHamcrest} == 'true' || ${useHamcrest} == 'yes' || ${useHamcrest} == 'y')
         <hamcrest.version>1.3</hamcrest.version>
-        <jmock.version>2.8.2</jmock.version>
-        <guava.version>21.0</guava.version>
+#end
+#if (${useMockito} == 'true' || ${useMockito} == 'yes' || ${useMockito} == 'y')
+        <mockito.version>2.19.0</mockito.version>
+#elseif (${useJmock} == 'true' || ${useJmock} == 'yes' || ${useJmock} == 'y')
+        <jmock.version>2.8.4</jmock.version>
+#end
+        <guava.version>25.1-jre</guava.version>
         <jcommander.version>1.60</jcommander.version>
-        <slf4j.version>1.7.22</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
+#if (${useAssertj} == 'true' || ${useAssertj} == 'yes' || ${useAssertj} == 'y')
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-guava</artifactId>
+            <version>${assertj-guava.version}</version>
+            <scope>test</scope>
+        </dependency>
+#elseif (${useHamcrest} == 'true' || ${useHamcrest} == 'yes' || ${useHamcrest} == 'y')
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -48,12 +79,22 @@
             <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
+#end
+#if (${useMockito} == 'true' || ${useMockito} == 'yes' || ${useMockito} == 'y')
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+#elseif (${useJmock} == 'true' || ${useJmock} == 'yes' || ${useJmock} == 'y')
         <dependency>
             <groupId>org.jmock</groupId>
             <artifactId>jmock-junit4</artifactId>
             <version>${jmock.version}</version>
             <scope>test</scope>
         </dependency>
+#end
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -91,7 +132,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -104,7 +145,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.0</version>
                 <configuration>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
@@ -136,7 +177,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -149,7 +190,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/assembly/assembly.xml</descriptor>
@@ -173,12 +214,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.9</version>
+                <version>3.0.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.17</version>
+                <version>3.0.0</version>
                 <configuration>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                 </configuration>

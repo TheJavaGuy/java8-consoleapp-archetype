@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor name="Java8 console app archetype" partial="false">
+<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+                      name="Java8 console app archetype"
+>
     <requiredProperties>
-        <!-- <requiredProperty key="property_1" /> -->
+        <requiredProperty key="projectName"/>
+        <requiredProperty key="projectDescription"/>
+        <requiredProperty key="useHamcrest">
+            <validationRegex>true|y|yes|false|n|no</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="useAssertj">
+            <validationRegex>true|y|yes|false|n|no</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="useMockito">
+            <validationRegex>true|y|yes|false|n|no</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="useJmock">
+            <validationRegex>true|y|yes|false|n|no</validationRegex>
+        </requiredProperty>
     </requiredProperties>
-    
+
     <fileSets>
+        <!--generate files using Velocity engine because filtered is true-->
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>/</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/main/java</directory>
             <includes>
