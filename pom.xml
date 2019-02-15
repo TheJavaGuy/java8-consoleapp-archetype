@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.thejavaguy.archetype</groupId>
     <artifactId>java8-consoleapp-archetype</artifactId>
-    <version>0.0.18</version>
+    <version>0.0.19</version>
     <name>Java8 console app archetype</name>
     <url>http://thejavaguy.org</url>
     <licenses>

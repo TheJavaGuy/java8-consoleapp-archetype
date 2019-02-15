@@ -23,7 +23,7 @@ xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assemb
         <!-- Copy application external resources alongside JAR -->
         <fileSet>
             <directory>${project.externalResourcesDirectory}</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>/${project.extDirectory}</outputDirectory>
         </fileSet>
     </fileSets>
     <dependencySets>
