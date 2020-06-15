@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.thejavaguy.archetype</groupId>
     <artifactId>java8-consoleapp-archetype</artifactId>
-    <version>0.0.19</version>
+    <version>0.0.20</version>
     <name>Java8 console app archetype</name>
     <url>http://thejavaguy.org</url>
     <licenses>
         <license>
             <name>GNU GENERAL PUBLIC LICENSE Version 3</name>
-            <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+            <url>https://www.gnu.org/licenses/gpl-3.0.html</url>
         </license>
     </licenses>
     <developers>
