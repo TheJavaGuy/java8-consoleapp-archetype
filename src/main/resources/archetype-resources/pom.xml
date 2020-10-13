@@ -23,7 +23,7 @@
         <project.libDirectory>lib</project.libDirectory>
         <project.extDirectory>ext</project.extDirectory>
         <mainClass>${package}.App</mainClass>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 #if (${useAssertj} == 'true' || ${useAssertj} == 'yes' || ${useAssertj} == 'y')
         <assertj.version>3.16.1</assertj.version>
         <assertj-guava.version>3.4.0</assertj-guava.version>
